@@ -270,7 +270,7 @@ function do_azure_login {
   local client_id="$2"
   local secret_access_key="$3"
   log_info "Logging into the Azure API as service principal $client_id"
-  result=$(az login --service-principal -u "$client_id" -p '$secret_access_key' --tenant "$tenant_id")
+  result=$(az login --service-principal -u "$client_id" -p $secret_access_key --tenant "$tenant_id")
 }
 
 function run {
