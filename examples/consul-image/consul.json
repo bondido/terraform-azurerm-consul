@@ -7,7 +7,7 @@
     "client_secret": "{{env `ARM_CLIENT_SECRET`}}",
     "azure_location": null,
     "resource_group_name": "consul",
-    "consul_version": "0.9.2"
+    "consul_version": "1.2.0"
   },
   "builders": [
     {
@@ -41,8 +41,8 @@
         "apt-get update && apt-get install -y libssl-dev libffi-dev python-dev build-essential apt-transport-https azure-cli",
         "DEBIAN_FRONTEND=noninteractive apt-get -y upgrade",
 
-        "/tmp/terraform-azurerm-consul/modules/install-consul/install-consul --version {{user `consul_version`}}",
-        "/tmp/terraform-azurerm-consul/modules/install-dnsmasq/install-dnsmasq",
+        "bash /tmp/terraform-azurerm-consul/modules/install-consul/install-consul --version {{user `consul_version`}}",
+        "bash /tmp/terraform-azurerm-consul/modules/install-dnsmasq/install-dnsmasq",
         "/usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync"
       ],
       "inline_shebang": "/bin/sh -x",
