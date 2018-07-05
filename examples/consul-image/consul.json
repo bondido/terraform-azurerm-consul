@@ -5,7 +5,7 @@
     "tenant_id": "{{env `ARM_TENANT_ID`}}",
     "client_id": "{{env `ARM_CLIENT_ID`}}",
     "client_secret": "{{env `ARM_CLIENT_SECRET`}}",
-    "azure_location": null,
+    "azure_location": "West Europe",
     "resource_group_name": "consul",
     "consul_version": "1.2.0"
   },
@@ -37,7 +37,7 @@
       "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
       "inline": [
         "echo \"deb https://packages.microsoft.com/repos/azure-cli/ wheezy main\" | sudo tee /etc/apt/sources.list.d/azure-cli.list",
-        "apt-key adv --keyserver packages.microsoft.com --recv-keys 417A0893",
+        "curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -",
         "apt-get update && apt-get install -y libssl-dev libffi-dev python-dev build-essential apt-transport-https azure-cli",
         "DEBIAN_FRONTEND=noninteractive apt-get -y upgrade",
 
