@@ -76,7 +76,7 @@ variable "instance_size" {
 
 variable "num_servers" {
   description = "The number of Consul server nodes to deploy. We strongly recommend using 3 or 5."
-  default = 3
+  default = 1
 }
 
 variable "num_clients" {
