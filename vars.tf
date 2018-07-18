@@ -81,7 +81,7 @@ variable "num_servers" {
 
 variable "num_clients" {
   description = "The number of Consul client nodes to deploy. You typically run the Consul client alongside your apps, so set this value to however many Instances make sense for your app code."
-  default = 1
+  default = 3
 }
 
 variable "cluster_tag_key" {
